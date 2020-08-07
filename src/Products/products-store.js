@@ -677,10 +677,10 @@ export const productsService = {
 			for (var productType in productsList) {
 				const items = productsList[productType];
         
-        // Loop through each product in the product type's list.
+        		// Loop through each product in the product type's list.
 				items.forEach( (item) => {
 
-          item.wholeProductDisabled = true;
+          			item.wholeProductDisabled = true;
 
 					const productIndex = items.findIndex(product=> product.id === item.id);
 					for (var key in item.purchasables) {

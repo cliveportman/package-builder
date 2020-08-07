@@ -34,14 +34,13 @@ a:active {
   box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
 }
 
-button:disabled,
-button:disabled:hover,
-button:disabled:active {
+button.disabled,
+button.disabled:hover,
+button.disabled:active {
   background: #ccc;
   border-color: #ccc;
   color: #959595;
   box-shadow: none;
-  cursor: not-allowed;
 }
 
 .success {
@@ -90,5 +89,5 @@ button:disabled:active {
 {#if type === 'link'}
   <a href="{href}" class="{style}">{text}</a>
 {:else}
-  <button type="{type}" class="{style}" {disabled} on:click>{text}</button>
+  <button type="{type}" class="{style} {disabled ? 'disabled' : ''}"  on:click>{text}</button>
 {/if}

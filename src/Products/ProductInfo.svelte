@@ -167,7 +167,7 @@ p {
   <div class="content">
     <h1>{productToShow.title}</h1>
     <p>{productToShow.description}</p>
-    {#if hasMemberPrice}<p class="memberprice">Discount available when purchased with social membership.</p>{/if}
+    {#if productToShow.hasMemberPrice}<p class="memberprice">Discount available when purchased with social membership.</p>{/if}
   </div>
 
   <footer>
@@ -188,7 +188,7 @@ p {
     <Button
       type="button"
       text="{productToShow.isInCart ? 'Remove from cart' : 'Add to cart'}"
-          disabled="{disabled}"
+      disabled="{disabled}"
       on:click="{productToShow.isInCart ? removeFromCart : addToCart}"
     />
 

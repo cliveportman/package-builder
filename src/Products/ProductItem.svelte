@@ -93,6 +93,10 @@
     margin: 0 0 2rem;
   }
 
+  p.memberprice {
+    color: #cf0056; font-size: 12px;
+  }
+
   footer {
   }
 
@@ -153,12 +157,20 @@
           text="More info"
           on:click="{ () => dispatch('showProductInfo', id) }"
         />
-        <Button
-          type="button"
-          text="{isInCart ? 'Remove from cart' : 'Add to cart'}"
-          disabled="{wholeProductDisabled}"
-          on:click="{isInCart ? removeFromCart : addToCart}"
-        />
+        {#if wholeProductDisabled}
+          <Button
+            type="button"
+            text="Unavailable"
+            disabled=true
+            on:click="{ () => dispatch('showRequiredProducts', id) }"
+          />
+        {:else}
+          <Button
+            type="button"
+            text="{isInCart ? 'Remove from cart' : 'Add to cart'}"
+            on:click="{isInCart ? removeFromCart : addToCart}"
+          />
+        {/if}
       </div>
   	</footer>
 

@@ -8,14 +8,24 @@ import { deals, products } from './Products/products-store.js';
 import ProductsGrid from "./Products/ProductsGrid.svelte";
 import DealsGrid from "./Products/DealsGrid.svelte";
 
+// DATA USED FOR MODALS
+let modalData = {};
+
 // HANDLES THE PRODUCT INFO MODAL
 import ProductInfo from "./Products/ProductInfo.svelte";
 let productInfoModal = false;
-let modalData = {};
 function showProductInfo(event) {
   modalData.id = event.detail;
   productInfoModal = !productInfoModal;
-}	
+}
+
+// HANDLES THE PRODUCT REQUIREMENTS MODAL
+import ProductRequirements from "./Products/ProductRequirements.svelte";
+let productRequirementsModal = false;
+function showRequiredProducts(event) {
+  modalData.id = event.detail;
+  productRequirementsModal = !productRequirementsModal;
+}
 
 // DISPLAYS THE CART
 import Cart from "./Cart/Cart.svelte";
@@ -80,31 +90,35 @@ let currentTab;
 
     {#if currentTab === 'visa'}
       <h1>Available Visa products</h1>
-      <ProductsGrid products="{$products.visas}" on:showProductInfo="{showProductInfo}" />
+      <ProductsGrid products="{$products.visas}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
     {/if}
 
     {#if currentTab === 'work'}
       <h1>Available Work products</h1>
-      <ProductsGrid products="{$products.works}" on:showProductInfo="{showProductInfo}" />
+      <ProductsGrid products="{$products.works}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
     {/if}
 
     {#if currentTab === 'social'}
       <h1>Available Social products</h1>
-      <ProductsGrid products="{$products.socials}" on:showProductInfo="{showProductInfo}" />
+      <ProductsGrid products="{$products.socials}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
     {/if} 
 
     {#if currentTab === 'relocation'}
       <h1>Available Relocation products</h1>
-      <ProductsGrid products="{$products.relocations}" on:showProductInfo="{showProductInfo}" />
+      <ProductsGrid products="{$products.relocations}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
     {/if} 
 
     {#if currentTab === 'tours'}
       <h1>Available Tours products</h1>
-      <ProductsGrid products="{$products.tours}" on:showProductInfo="{showProductInfo}" />
+      <ProductsGrid products="{$products.tours}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
     {/if}    
 
-		{#if productInfoModal}
+    {#if productInfoModal}
       <ProductInfo id="{modalData.id}" on:close="{showProductInfo}" />
+    {/if}   
+
+    {#if productRequirementsModal}
+      <ProductRequirements id="{modalData.id}" on:close="{showRequiredProducts}" />
     {/if}
 
   </div>

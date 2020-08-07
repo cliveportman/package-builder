@@ -29,11 +29,12 @@
 			description="{product.description}"
 			imageUrl="{product.imageUrl}"
 			purchasables="{product.purchasables}"
-      width="{product.width}"
-      hasMemberPrice="{product.hasMemberPrice}"
-      isInCart="{product.isInCart}"
-      wholeProductDisabled="{product.wholeProductDisabled}"
-  		on:showProductInfo
+	      	width="{product.width}"
+	      	hasMemberPrice="{product.hasMemberPrice}"
+	      	isInCart="{product.isInCart}"
+	      	wholeProductDisabled="{product.wholeProductDisabled}"
+  			on:showProductInfo
+  			on:showRequiredProducts
 		/>
 	{/each}
 </section>
