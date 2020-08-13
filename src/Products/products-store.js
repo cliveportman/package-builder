@@ -219,14 +219,14 @@ export const products = writable({
 					title: 'Monese',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '024',
 					title: 'Starling',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -244,14 +244,14 @@ export const products = writable({
 					title: 'HSBC',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '026',
 					title: 'Lloyds-TSB',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -269,14 +269,14 @@ export const products = writable({
 					title: 'Option 1',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '028',
 					title: 'Option 2',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
