@@ -121,6 +121,20 @@ p {
   font-size: 1.5rem;
 }
 
+  p.sale {
+    font-size: 16px; 
+    color: red;
+  }
+  p.sale .strike {    
+  }
+  p.sale .note {
+    font-size: 12px;    
+  }
+
+  p.price {
+    font-size: 16px;
+  }
+
 
 
   footer p {
@@ -168,6 +182,10 @@ p {
     <h1>{productToShow.title}</h1>
     <p>{productToShow.description}</p>
     {#if productToShow.hasMemberPrice}<p class="memberprice">Discount available when purchased with social membership.</p>{/if}
+
+    {#if productToShow.sale}
+      <p class="sale"><span class="strike">{productToShow.sale}</span><br><span class="note">* sale prices shown</span></p>
+    {/if}
   </div>
 
   <footer>
@@ -179,11 +197,15 @@ p {
       on:click="{ () => dispatch('close') }"
     />
 
-    <select disabled="{disabled}" bind:value="{selectedPurchasable}">
-      {#each productToShow.purchasables as purchasable}
-        <option value="{purchasable}" disabled="{purchasable.disabled}">{purchasable.title} £{purchasable.price.toFixed(2)}</option>
-      {/each}
-    </select>
+      {#if productToShow.purchasables.length > 1}
+        <select disabled="{disabled}" bind:value="{selectedPurchasable}">
+          {#each productToShow.purchasables as purchasable}
+            <option value="{purchasable}" disabled="{purchasable.disabled}">{purchasable.title} £{purchasable.price.toFixed(2)}</option>
+          {/each}
+        </select>
+      {:else}
+        <p class="price">£{productToShow.purchasables[0].price.toFixed(2)}</p>
+      {/if}
 
     <Button
       type="button"

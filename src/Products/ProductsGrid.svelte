@@ -30,6 +30,7 @@
 			imageUrl="{product.imageUrl}"
 			purchasables="{product.purchasables}"
 	      	width="{product.width}"
+	      	sale="{product.sale}"
 	      	hasMemberPrice="{product.hasMemberPrice}"
 	      	isInCart="{product.isInCart}"
 	      	wholeProductDisabled="{product.wholeProductDisabled}"

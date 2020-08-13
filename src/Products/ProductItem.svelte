@@ -12,17 +12,24 @@
 	export let imageUrl;
 	export let purchasables = [];
   export let width;
+  export let sale;
   export let hasMemberPrice = false;
   export let isInCart = false;
   export let wholeProductDisabled;
 
 
 
-
-  let selectedPurchasable;
+  // Products with a single variant need the selectedPurchasable to be populated.
+  let selectedPurchasable = null;
+  if (purchasables.length === 1) {
+    selectedPurchasable = purchasables[0];
+  }
 
   function addToCart() {
-    cartService.addItem({ product: { id: id, title: title }, purchasable: selectedPurchasable });
+    // For multi-variant products, we disable the Add To Cart button until a purchasable has been selected.
+    if (selectedPurchasable) {
+      cartService.addItem({ product: { id: id, title: title }, purchasable: selectedPurchasable });
+    }
   }
 
   function removeFromCart() {
@@ -93,6 +100,20 @@
     margin: 0 0 2rem;
   }
 
+  p.sale {
+    font-size: 16px; 
+    color: red;
+  }
+  p.sale .strike {    
+  }
+  p.sale .note {
+    font-size: 12px;    
+  }
+
+  p.price {
+    font-size: 16px;
+  }
+
   p.memberprice {
     color: #cf0056; font-size: 12px;
   }
@@ -144,11 +165,21 @@
     </div>
 
   	<footer>
-      <select disabled="{wholeProductDisabled}" bind:value="{selectedPurchasable}">
-        {#each purchasables as purchasable}
-          <option value="{purchasable}" disabled="{purchasable.disabled}">{purchasable.title} £{purchasable.price.toFixed(2)}</option>
-        {/each}
-      </select>
+
+      {#if sale}
+        <p class="sale"><span class="strike">{sale}</span><br><span class="note">* sale prices shown</span></p>
+      {/if}
+
+      {#if purchasables.length > 1}
+        <select disabled="{wholeProductDisabled}" bind:value="{selectedPurchasable}">
+          <option>Select...</option>
+          {#each purchasables as purchasable}
+            <option value="{purchasable}" disabled="{purchasable.disabled}">{purchasable.title} £{purchasable.price.toFixed(2)}</option>
+          {/each}
+        </select>
+      {:else}
+        <p class="price">£{purchasables[0].price.toFixed(2)}</p>
+      {/if}
 
       <div class="actions">
         <Button
@@ -163,6 +194,13 @@
             text="Unavailable"
             disabled=true
             on:click="{ () => dispatch('showRequiredProducts', id) }"
+          />
+        {:else if !selectedPurchasable}
+          <Button
+            type="button"
+            text="Add to cart"
+            disabled=true
+            on:click="{addToCart}"
           />
         {:else}
           <Button

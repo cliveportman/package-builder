@@ -48,10 +48,11 @@ export const products = writable({
 					requires: [],
 					disabled: false
 				}
-      ],
-      hasMemberPrice: false,
-      isInCart: false,
-      wholeProductDisabled: false
+      		],
+			sale: '50% off regular price',
+			hasMemberPrice: false,
+			isInCart: false,
+			wholeProductDisabled: false
 		},
 		{
 			id: 'uk-ancestry',
@@ -73,10 +74,11 @@ export const products = writable({
 					requires: [],
 					disabled: false
 				}
-      ],
-      hasMemberPrice: false,
-      isInCart: false,
-      wholeProductDisabled: false
+			],
+			sale: '£5 off regular price',
+			hasMemberPrice: false,
+			isInCart: false,
+			wholeProductDisabled: false
 		},
 		{
 			id: 'uk-ancestry-plus-partner',
