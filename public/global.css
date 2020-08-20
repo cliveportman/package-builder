@@ -18,3 +18,16 @@ body {
   padding: 0;
   background: #f6f6f6;
 }
+
+p {
+  margin: 0 0 1rem;
+  font-size: 1rem; text-align: left;
+}
+
+ol {
+  margin: 0 0 1rem;
+  font-size: 1rem; text-align: left;
+}
+li {
+  text-align: left;
+}

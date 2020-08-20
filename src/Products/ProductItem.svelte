@@ -8,7 +8,8 @@
 
   export let id;
 	export let title;
-	export let description;
+  export let oneLiner;
+	export let description = [];
 	export let imageUrl;
 	export let purchasables = [];
   export let width;
@@ -160,7 +161,7 @@
 
     <div class="text">
       <h1>{title}</h1>
-  		<p>{description}</p>
+  		<p class="oneliner">{oneLiner}</p>
       {#if hasMemberPrice}<p class="memberprice">Discount available when purchased with social membership (above).</p>{/if}
     </div>
 

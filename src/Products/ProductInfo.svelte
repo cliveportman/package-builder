@@ -39,6 +39,11 @@
     cartService.removeItem(productToShow.id);
   }
 
+  let openConcertinaItemIndex = 0;
+  function openConcertinaItem(index) {
+    console.log(index);
+  }
+
   export let disabled = true;  
 
   productToShow.purchasables.forEach((purchasable) => {
@@ -113,12 +118,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25rem;
-  color: #6b6b6b;
-}
-
-p {
-  font-size: 1.5rem;
+  font-size: 1rem; text-align: left;
+  margin: 0; padding: 0.75rem 0 0.75rem;
 }
 
   p.sale {
@@ -135,6 +136,19 @@ p {
     font-size: 16px;
   }
 
+
+.concertina {}
+.concertina-item {
+  border-top: 1px solid #000;
+}
+.concertina-item.closed .concertina-item__body {
+  display: none;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
 
 
   footer p {
@@ -180,12 +194,22 @@ p {
 
   <div class="content">
     <h1>{productToShow.title}</h1>
-    <p>{productToShow.description}</p>
+    <p class="oneliner">{productToShow.oneLiner}</p>
     {#if productToShow.hasMemberPrice}<p class="memberprice">Discount available when purchased with social membership.</p>{/if}
 
     {#if productToShow.sale}
       <p class="sale"><span class="strike">{productToShow.sale}</span><br><span class="note">* sale prices shown</span></p>
     {/if}
+
+    <div class="concertina">
+      {#each productToShow.description as concertinaItem, index}
+        <div class="concertina-item {index != openConcertinaItemIndex ? 'closed' : ''}">
+          <h2 on:click="{() => openConcertinaItemIndex = index}">{concertinaItem.heading}</h2>
+          <div class="concertina-item__body">{@html concertinaItem.body}</div>
+        </div>
+      {/each}
+    </div>
+
   </div>
 
   <footer>

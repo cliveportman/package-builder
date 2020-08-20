@@ -26,6 +26,7 @@
 		<ProductItem
 			id="{product.id}"
 			title="{product.title}"
+			oneLiner="{product.oneLiner}"
 			description="{product.description}"
 			imageUrl="{product.imageUrl}"
 			purchasables="{product.purchasables}"
