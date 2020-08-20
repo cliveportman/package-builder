@@ -199,6 +199,7 @@ p {
 
       {#if productToShow.purchasables.length > 1}
         <select disabled="{disabled}" bind:value="{selectedPurchasable}">
+          <option>Select...</option>
           {#each productToShow.purchasables as purchasable}
             <option value="{purchasable}" disabled="{purchasable.disabled}">{purchasable.title} £{purchasable.price.toFixed(2)}</option>
           {/each}
