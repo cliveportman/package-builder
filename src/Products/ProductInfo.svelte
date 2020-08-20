@@ -122,6 +122,23 @@ h2 {
   margin: 0; padding: 0.75rem 0 0.75rem;
 }
 
+h2:before {
+  display: block; float: left;
+  content: "";
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px; margin-right: 0.5rem; margin-top: 0.45rem;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.concertina-item.closed h2:before {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+
+}
+
   p.sale {
     font-size: 16px; 
     color: red;
