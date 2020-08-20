@@ -319,7 +319,7 @@ export const products = writable({
 					title: 'Job Board Access',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -337,21 +337,21 @@ export const products = writable({
 					title: 'Sim + £10 credit',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '033',
 					title: 'Sim + £20 credit',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '034',
 					title: 'Sim + £30 credit',
 					price: 10,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -433,14 +433,14 @@ export const products = writable({
 					title: 'Group orientation',
 					price: 5,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '042',
 					title: 'One-to-one',
 					price: 25,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -458,7 +458,7 @@ export const products = writable({
 					title: 'Pre-departure phonecall',
 					price: 5,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -476,14 +476,14 @@ export const products = writable({
 					title: 'Option 1',
 					price: 25,
 					requires: [],
-					disabled: true
+					disabled: false
 				},
 				{
 					id: '045',
 					title: 'Option 2',
 					price: 50,
 					requires: [],
-					disabled: true
+					disabled: false
 				}
       ],
       hasMemberPrice: false,
@@ -674,32 +674,41 @@ export const productsService = {
 
 	toggleIsDisabled: (id, requiredItemInCart) => {
 
+		console.log(id);
+
 		products.update(productsList => {
 
+			// Loop through the product types.
 			for (var productType in productsList) {
-				const items = productsList[productType];
         
-        		// Loop through each product in the product type's list.
+        		// Loop through each product in the product type's list of products.
+				const items = productsList[productType];
 				items.forEach( (item) => {
 
+					// Disable each item by default.
           			item.wholeProductDisabled = true;
 
 					const productIndex = items.findIndex(product=> product.id === item.id);
+
 					for (var key in item.purchasables) {
-					  var purchasable = item.purchasables[key];
+
+					  	var purchasable = item.purchasables[key];
 						var requiredProducts = purchasable.requires;
+
+						// If th purchasable contains a required product and one of the 
+						// required products matches the id, we enable the product.
 						if (requiredProducts.length && requiredProducts.indexOf(id) !== -1) {
 							purchasable.disabled = !requiredItemInCart;
 							item.purchasables[key] = purchasable;
-            }
-            if (!purchasable.disabled)  item.wholeProductDisabled = false;			    
-          }
+            			}
+            			if (!purchasable.disabled)  item.wholeProductDisabled = false;			    
+          			}
           
 					items[productIndex] = item;
 
 				});
 
-        productsList[productType] = items;
+        	productsList[productType] = items;
         
 			}
 			return productsList;

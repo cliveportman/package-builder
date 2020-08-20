@@ -1,13 +1,21 @@
 <script>
 
-	import { cartItems, cartService, totalPrice } from './cart-store.js';
+	import { cartItems, cartService, totalPrice, requiredItemsToWarnAbout } from './cart-store.js';
 
 	import CartItem from './CartItem.svelte';
+	import CartWarningModal from './CartWarningModal.svelte';
   	import Button from "../UI/Button.svelte";
 
-  function emptyCart() {
-    cartService.emptyCart();
-  }
+	function emptyCart() {
+		cartService.emptyCart();
+	}
+
+  	let warningModalItems = false;
+	const unsubscribe = requiredItemsToWarnAbout.subscribe(items => {
+		warningModalItems = items;
+	});
+
+
 
 
 </script>
@@ -38,6 +46,10 @@
 	}
 
 </style>
+
+{#if warningModalItems.length}
+  <CartWarningModal items="{warningModalItems}" on:close="" />
+{/if}
 
 
 <div class="cart">

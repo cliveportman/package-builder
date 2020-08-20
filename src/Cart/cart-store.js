@@ -4,9 +4,12 @@ import { deals, products, productsService } from '../Products/products-store.js'
 
 export const cartItems = writable([]);
 
+export const requiredItemsToWarnAbout = writable([]);
+
 export const cartService = {
 
   subscribe: cartItems.subscribe,
+  subscribe: requiredItemsToWarnAbout,
 
   subscribe: deals.subscribe,
 
@@ -59,8 +62,19 @@ export const cartService = {
         }
       }
       if (matchedItems.length) {
-        // Display the warning modal, passing it the selected item and the matched item.
-        // The modal should include 
+
+        // We have an item in the cart that requires the one being removed.
+        // Return the concerned items so we can show a warning
+        requiredItemsToWarnAbout.update(items => {
+          let linkedItems = matchedItems;
+          linkedItems.push(selectedItem);
+          return linkedItems;
+        });
+
+        // We aren't going to make any changes yet, because we're going to ask them to confirm.
+        // So return the items as they were.
+        return items;
+
       } else {
 
         // Just remnove the selected item from the cart.
@@ -75,11 +89,13 @@ export const cartService = {
 
   removeMultipleItems: ids => {
     cartItems.update(items => {
-      for (var id in ids) {
+
+      ids.forEach(function(id) {
         productsService.toggleIsInCart(id);
         productsService.toggleIsDisabled(id, false);
         items = items.filter(i => i.product.id !== id);
-      }
+      });
+
       return items;
     });
   },
@@ -90,6 +106,12 @@ export const cartService = {
         productsService.toggleIsInCart(items[key].product.id);
         productsService.toggleIsDisabled(items[key].product.id, false);
       }
+      return items = [];
+    });
+  },
+
+  clearRequiredItems: () => {
+    requiredItemsToWarnAbout.update(items => {
       return items = [];
     });
   },
@@ -112,7 +134,7 @@ export const cartService = {
 
   }
 
-};
+}; 
 
 export const totalPrice = derived(
   cartItems,
