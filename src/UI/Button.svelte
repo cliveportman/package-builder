@@ -14,7 +14,7 @@ a {
   font: inherit;
   border: 1px solid #000066;
   background: #000066;
-  padding: 1rem 1rem;
+  padding: 1rem 0.5rem;
   color: white;
   border-radius: 2px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
@@ -23,7 +23,7 @@ a {
   
 
       font-family: "Lato", sans-serif; font-weight: 700; letter-spacing: 0.5px;
-      font-size: 1.5rem; line-height: 1.2em; text-transform: uppercase;
+      font-size: 1.4rem; line-height: 1.2em; text-transform: uppercase;
 }
 
 button:focus {

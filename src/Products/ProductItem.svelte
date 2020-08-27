@@ -63,7 +63,7 @@
 
   @media (min-width: 1024px) {
     article {
-      width: calc(33.3333% - 1rem);
+      width: calc(25% - 1rem);
     }
   }
 
@@ -229,7 +229,7 @@
         {:else if !selectedPurchasable}
           <Button
             type="button"
-            text="Add to cart"
+            text="Add"
             disabled=true
             on:click="{addToCart}"
           />
@@ -237,7 +237,7 @@
           <Button
             type="button"
             style="{isInCart ? '' : 'success'}"
-            text="{isInCart ? 'Remove' : 'Add to cart'}"
+            text="{isInCart ? 'Remove' : 'Add'}"
             on:click="{isInCart ? removeFromCart : addToCart}"
           />
         {/if}
