@@ -116,19 +116,19 @@ img {
 
   h1 {
     padding: 1rem 0 1rem;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em;
     color: #000066; text-transform: uppercase;
   }
 
   p {
     padding-bottom: 1rem;
-      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.6rem; line-height: 1.2em; color: #000;
   }
 
 h2 {
-      font-family: "din-2014", sans-serif; font-weight: 700;
+      font-family: "Lato", sans-serif; font-weight: 700;
       font-size: 1.6rem; line-height: 1.2em; color: #000;
   margin: 0; padding: 1rem 0 1rem;
 }
@@ -196,7 +196,7 @@ h2:before {
     padding: 0.5rem;
     font-size: 1.25rem;
 
-      font-family: "din-2014", sans-serif;
+      font-family: "Lato", sans-serif;
       font-size: 1.6rem; text-transform: none;
   }
 

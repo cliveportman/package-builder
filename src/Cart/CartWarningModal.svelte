@@ -79,7 +79,7 @@ section {
 
   p {
     padding-bottom: 1rem;
-      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.6rem; line-height: 1.2em; color: #000;
   }
 

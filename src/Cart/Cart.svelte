@@ -91,15 +91,25 @@
 
 <style>
 	.cart {
-		position:fixed; width: 30rem; height: 100vh; margin-left: 20px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
 		box-shadow: 0 2px 6px rgba(0,0,0, 0.26);
-		padding: 1rem;
+		padding: 1rem; margin-bottom: 2rem;
 		overflow-y: auto;
 	}
 
+  @media (min-width: 768px) {
+    .cart {
+    position:fixed; width: 30rem; height: 100vh; margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    }
+  }
+
+  footer {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
 	footer h1 {
 	}
 
@@ -116,34 +126,36 @@
 
 
 
-
   h1 {
+    padding: 0; margin-bottom: 2rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: center;
+    color: #000066; text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+
+
+  h2 {
     padding: 0; margin-bottom: 2rem; margin-top: 2rem;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: right;
     color: #000066; text-transform: uppercase;
   }
-  h2 {
+  h3 {
     padding: 0; margin-top: 1rem;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 700; font-size: 1.6rem; line-height: 1.2em; text-align: right;
     color: #000066; text-transform: uppercase;
   }
 
-  h1 span, h2 span {
+  h2 span, h3 span {
   	color: #f36; font-weight: 700;
   }
 
-  h3 {
-    padding: 0;
-    font-family: "fatfrank", sans-serif;
-    font-weight: 700; font-size: 1.6rem; line-height: 1.2em;
-    color: #000066; text-transform: none;
-  }
-
   p {
-    padding-top: 0.5rem; margin-bottom: 0;
-      font-family: "din-2014", sans-serif; font-weight: 400;
+    padding-top: 0.5rem; margin-bottom: 2rem; text-align: center;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.6rem; line-height: 1.2em; color: #000066;
   }
 
@@ -158,8 +170,11 @@
 {/if}
 
 
-<div class="cart">
+<div class="cart" id="carttop">
 
+  <h1>Your cart</h1>
+
+  {#if $cartItems.length}
 	<div class="cartitems">
 		{#each $cartItems as item}
 			<CartItem
@@ -169,15 +184,18 @@
 			/>
 		{/each}
 	</div>
+  {:else}
+    <p>Your cart is empty</p>
+  {/if}
 
 	<footer>
-	    <h2>Package price: <span>£{$cartTotals.subtotal.toFixed(2)}</span></h2>
+	    <h3>Package price: <span>£{$cartTotals.subtotal.toFixed(2)}</span></h3>
 		{#if $cartOffer}
 							
-				<h2>Package deal: {$cartOffer.title}<br><span>£{$cartTotals.adjustment.toFixed(2)}</span></h2>
+				<h3>Package deal:<br> {$cartOffer.title}<br><span>£{$cartTotals.adjustment.toFixed(2)}</span></h3>
 			
 		{/if}
-	    <h1>Total: <span>£{($cartTotals.subtotal + $cartTotals.adjustment).toFixed(2)}</span></h1>
+	    <h2>Total: <span>£{($cartTotals.subtotal + $cartTotals.adjustment).toFixed(2)}</span></h2>
 		<div class="actions">
 		    <Button
 		      type="button"
@@ -187,7 +205,8 @@
 		    />
 		    <Button
 		      type="button"
-		      text="Cart"
+          style="success"
+		      text="Checkout"
 		      on:click="{processCart}"
 		    />
 		</div>

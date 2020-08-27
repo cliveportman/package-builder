@@ -22,8 +22,8 @@ a {
   text-decoration: none;
   
 
-      font-family: "din-2014", sans-serif; font-weight: 700;
-      font-size: 1.6rem; line-height: 1.2em; text-transform: uppercase;
+      font-family: "Lato", sans-serif; font-weight: 700; letter-spacing: 0.5px;
+      font-size: 1.5rem; line-height: 1.2em; text-transform: uppercase;
 }
 
 button:focus {
@@ -60,16 +60,17 @@ button.disabled:active {
 }
 
 .outline {
-  background: #fc0;
-  border-color: #fc0;
-  color: #fff;
+  background: #ccc;
+  border-color: #ccc;
+  color: #000;
   box-shadow: none;
 }
 
 .outline:hover,
 .outline:active {
-  background: #ffc7de;
+  background: #666;
   box-shadow: none;
+  color: #fff;
 }
 
 .outline:disabled,

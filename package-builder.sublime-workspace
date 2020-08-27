@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"bor",
+				"border-bottom\tproperty"
+			],
+			[
+				"remove",
+				"removeFromCart"
+			],
+			[
 				"font-s",
 				"font-size\tproperty"
 			],
@@ -58,10 +66,6 @@
 			[
 				"marg",
 				"margin-bottom\tproperty"
-			],
-			[
-				"bor",
-				"border-bottom\tproperty"
 			],
 			[
 				"cancel",
@@ -288,54 +292,11 @@
 	"buffers":
 	[
 		{
-			"file": "src/Products/ProductItem.svelte",
+			"file": "src/UI/Header.svelte",
 			"settings":
 			{
-				"buffer_size": 5331,
+				"buffer_size": 509,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Products/ProductInfo.svelte",
-			"settings":
-			{
-				"buffer_size": 5666,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Cart/Cart.svelte",
-			"settings":
-			{
-				"buffer_size": 3596,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/App.svelte",
-			"settings":
-			{
-				"buffer_size": 4262,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/index.html",
-			"settings":
-			{
-				"buffer_size": 534,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/Products/DealsGrid.svelte",
-			"settings":
-			{
-				"buffer_size": 508,
 				"line_ending": "Windows"
 			}
 		},
@@ -344,26 +305,42 @@
 			"settings":
 			{
 				"buffer_size": 843,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Products/ProductItem.svelte",
+			"settings":
+			{
+				"buffer_size": 5404,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/Products/DealItem.svelte",
+			"file": "src/Cart/CartItem.svelte",
 			"settings":
 			{
-				"buffer_size": 2652,
+				"buffer_size": 1427,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/UI/Button.svelte",
+			"file": "src/Cart/Cart.svelte",
 			"settings":
 			{
-				"buffer_size": 1532,
+				"buffer_size": 4663,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/index.html",
+			"settings":
+			{
+				"buffer_size": 666,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -413,26 +390,27 @@
 	],
 	"file_history":
 	[
-		"/C/dev/repos/svelte/package-builder/public/global.css",
+		"/C/dev/repos/svelte/package-builder/src/Cart/CartWarningModal.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/ProductRequirements.svelte",
 		"/C/dev/repos/svelte/package-builder/src/UI/Tabs.svelte",
-		"/C/dev/repos/svelte/package-builder/src/UI/Button.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Products/DealItem.svelte",
-		"/C/dev/repos/svelte/package-builder/src/UI/Header.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/ProductItem.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/ProductInfo.svelte",
+		"/C/dev/repos/svelte/package-builder/public/index.html",
+		"/C/dev/repos/svelte/package-builder/public/global.css",
+		"/C/dev/repos/svelte/package-builder/src/UI/Button.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/ProductsGrid.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Products/DealsGrid.svelte",
 		"/C/dev/repos/svelte/package-builder/src/App.svelte",
-		"/C/dev/repos/svelte/package-builder/public/index.html",
-		"/C/dev/repos/svelte/package-builder/src/Products/ProductsGrid.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Cart/CartItem.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Cart/Cart.svelte",
+		"/C/dev/repos/svelte/package-builder/src/UI/Header.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Cart/cart-store.js",
 		"/C/dev/repos/svelte/package-builder/src/main.js",
 		"/C/dev/repos/svelte/package-builder/src/Products/products-store.js",
-		"/C/dev/repos/svelte/package-builder/src/Products/ProductInfo.svelte",
 		"/C/dev/repos/svelte/package-builder/src/UI/LoadingSpinner.svelte",
 		"/C/Users/clive/AppData/Local/Temp/Temp1_prj-http-02-loading-spinner-and-fetching.zip/prj-http-02-loading-spinner-and-fetching/src/App.svelte",
 		"/C/Users/clive/AppData/Local/Temp/Temp1_prj-http-02-loading-spinner-and-fetching.zip/prj-http-02-loading-spinner-and-fetching/src/UI/LoadingSpinner.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Products/ProductItem.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Cart/CartWarningModal.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Products/ProductRequirements.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Cart/cartWarningModal.svelte",
 		"/C/wamp/bin/apache/apache2.4.39/bin/php.ini",
 		"/C/dev/repos/web/asquared/craft/config/db.php",
@@ -539,8 +517,7 @@
 		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/craft/templates/bookings/testEntries/add.html",
 		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/craft/templates/bookings/testEntries/edit.html",
 		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/craft/templates/bookings/testEntries/thanks.html",
-		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/public_html/bookings/bookings.min.js",
-		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/public_html/bookings/src/js/main.js"
+		"/C/Users/clive/OneDrive/Desktop/repos/lacuisine/public_html/bookings/bookings.min.js"
 	],
 	"find":
 	{
@@ -653,6 +630,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fatfrank",
+			"din-2014",
+			"purchasables[0]",
+			"onel",
 			"incart",
 			"isincart",
 			"applied",
@@ -776,11 +757,7 @@
 			"ul",
 			"data",
 			"https:",
-			"http",
-			"lacuis",
-			"2018-01-11",
-			"11",
-			"totalSalesValue"
+			"http"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -798,185 +775,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/Products/ProductItem.svelte",
+					"file": "src/UI/Header.svelte",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5331,
+						"buffer_size": 509,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2499,
-								2158
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Svelte/Svelte.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1822.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/Products/ProductInfo.svelte",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5666,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3146,
-								3146
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Svelte/Svelte.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/Cart/Cart.svelte",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3596,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3403,
-								3403
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Svelte/Svelte.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2278.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/App.svelte",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4262,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2613,
-								2613
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Svelte/Svelte.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1824.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 534,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								474,
-								491
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/Products/DealsGrid.svelte",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 508,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								130,
-								103
+								191,
+								191
 							]
 						],
 						"settings":
@@ -991,11 +807,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 1,
 					"file": "src/Products/ProductsGrid.svelte",
 					"semi_transient": false,
 					"settings":
@@ -1007,8 +823,8 @@
 						"selection":
 						[
 							[
-								139,
-								139
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1023,24 +839,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/Products/DealItem.svelte",
+					"buffer": 2,
+					"file": "src/Products/ProductItem.svelte",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2652,
+						"buffer_size": 5404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2140,
-								2140
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1053,27 +869,31 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1595.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "src/UI/Button.svelte",
+					"buffer": 3,
+					"file": "src/Cart/CartItem.svelte",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1532,
+						"buffer_size": 1427,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								552,
-								418
+								796,
+								796
+							],
+							[
+								994,
+								994
 							]
 						],
 						"settings":
@@ -1086,10 +906,75 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 57.0,
+						"translation.y": 456.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/Cart/Cart.svelte",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4663,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4202,
+								4202
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Svelte/Svelte.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2944.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								434,
+								302
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1153,16 +1038,20 @@
 	"select_project":
 	{
 		"height": 1061.33333333,
-		"last_filter": "cake",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"cake",
-				"C:\\dev\\repos\\svelte\\cakeweek-sapper\\cakeweek.sublime-project"
-			],
-			[
 				"",
 				"C:\\dev\\repos\\web\\britbound\\britbound.sublime-project"
+			],
+			[
+				"the",
+				"C:\\dev\\repos\\web\\theportman\\theportman.sublime-project"
+			],
+			[
+				"cake",
+				"C:\\dev\\repos\\svelte\\cakeweek-sapper\\cakeweek.sublime-project"
 			],
 			[
 				"bri",
@@ -1395,10 +1284,6 @@
 			[
 				"sigi",
 				"C:\\Users\\clive\\Desktop\\repos\\sigi\\sigi.sublime-project"
-			],
-			[
-				"the",
-				"C:\\Users\\clive\\Desktop\\repos\\thekingsginger\\tkg.sublime-project"
 			],
 			[
 				"ginge",

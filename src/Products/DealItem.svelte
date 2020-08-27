@@ -77,14 +77,14 @@
 
   h1 {
     padding: 1rem 0 1rem;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em;
     color: #000066; text-transform: uppercase;
   }
 
   p {
     padding-bottom: 1rem;
-      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.6rem; line-height: 1.2em; color: #000;
   }
 
@@ -104,7 +104,7 @@
     display: block;
     height: 2.5rem; width: 100%;
     padding: 0.5rem; margin-bottom: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.25rem; font-family: "Lato", sans-serif;
 
     border-radius: 5px;
   }

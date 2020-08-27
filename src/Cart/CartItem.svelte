@@ -18,28 +18,27 @@
 
   .cartitem {
     padding: 1rem; margin-bottom: 0.5rem;
-    border-bottom: 1px solid #006;
   }
 
 
 
   h2 {
     padding: 0;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 1.6rem; line-height: 1.2em;
     color: #000066; text-transform: uppercase;
   }
 
   h3 {
     padding: 0;
-    font-family: "fatfrank", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 700; font-size: 1.6rem; line-height: 1.2em;
     color: #000066; text-transform: none;
   }
 
   p {
     padding-top: 0.5rem; margin-bottom: 0;
-      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.6rem; line-height: 1.2em; color: #000066;
   }
 
@@ -48,7 +47,7 @@
   }
 
   a {
-      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-family: "Lato", sans-serif; font-weight: 400;
       font-size: 1.4rem; line-height: 1.2em; color: #000066;
   }
 

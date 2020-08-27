@@ -12,7 +12,7 @@
 
 	h1 {
 	    margin-bottom: 0;
-	    font-family: "din-2014", sans-serif;
+	    font-family: "Lato", sans-serif;
 	    font-weight: 400;
 	    font-size: 2.8rem;
 	    line-height: 1.2em;

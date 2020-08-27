@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+
+    import Button from "../UI/Button.svelte";
   
     export let items = [];
     export let activeTabValue;
@@ -18,8 +20,12 @@
 <style>
     ul {
       padding-left: 0;
-      margin-bottom: 0;
+      margin-bottom: 20px;
       list-style: none;
+    }
+
+    li {
+      margin-bottom: 0;
     }
 
       @media (min-width: 768px) {
@@ -45,8 +51,8 @@
       padding: 1rem 2rem;
       cursor: pointer;
 
-      font-family: "din-2014", sans-serif; font-weight: 400;
-      font-size: 1.8rem; line-height: 1.2em; text-transform: uppercase;
+      font-family: "Lato", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; text-transform: uppercase;
 
       background: #000066; color: #fff;
     }
@@ -61,6 +67,30 @@
       background-color: #f36;
       border-color: #f36;
     }
+
+
+a {
+  display: block;
+  margin: 0 0;
+  font: inherit;
+  border: 1px solid #01a129; text-align: center;
+  background: #01a129;
+  padding: 1rem 1rem;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  text-decoration: none;
+  
+
+      font-family: "Lato", sans-serif; font-weight: 700; letter-spacing: 0.5px;
+      font-size: 1.6rem; line-height: 1.2em; text-transform: uppercase;
+}
+@media (min-width: 1024px) { 
+  a {
+    display: none;
+  }
+  }
   </style>
   
   <ul>
@@ -72,3 +102,8 @@
       {/each}
     {/if}
   </ul>
+
+  <div>
+        <a href="#carttop">View cart</a>
+      </div>
+  
