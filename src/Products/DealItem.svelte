@@ -5,35 +5,55 @@
   import Button from "../UI/Button.svelte";
 
   export let id;
-	export let title;
+  export let title;
+  export let description;
 	export let imageUrl;
-  export let code;
-  export let isDiscountApplied = false;
+  export let isApplied = false;
 
-  function applyDiscount() {
-    //cartService.addItem({ product: { id: id, title: title }, purchasable: selectedPurchasable });
-  }
-
-  function removeDiscount() {
-    //cartService.removeItem(id);
+  function toggleOffer() {
+    cartService.toggleOfferApplied(id);
   }
 
 </script>
 
 <style>
+
+  /* BASIC CARD */
   article {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 5px;
     background: white;
-    margin: 0.5rem;
-    width: calc(50% - 1rem);  
+    margin: 0 0.5rem  1rem;  
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  
+    justify-content: space-between; 
+    border: 3px solid white;
   }
 
-  article.applied {
-    background: green;
+  @media (min-width: 768px) {
+    article {
+      width: calc(50% - 1rem);
+    } 
+
+  }
+
+  @media (min-width: 1024px) {
+    article {
+      width: calc(33.3333% - 1rem);
+    }
+  }
+
+
+
+
+  /* SELECTED ITEM */
+  article.incart {
+    box-shadow: 0 2px 8px rgba(255, 51, 102, 0.9);
+    border: 3px solid #f36;
+    background: #ddd;
+  }
+
+  article.incart img {
+    opacity: 0.75;
   }
 
   .content {
@@ -56,14 +76,16 @@
   }
 
   h1 {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
-    font-family: "Roboto Slab", sans-serif;
+    padding: 1rem 0 1rem;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em;
+    color: #000066; text-transform: uppercase;
   }
 
   p {
-    font-size: 1.25rem;
-    margin: 0 0 2rem;
+    padding-bottom: 1rem;
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
   }
 
   footer {
@@ -98,7 +120,9 @@
 
 </style>
 
-<article class="{isDiscountApplied ? 'applied' : ''}">
+<article class="{isApplied ? 'incart' : ''}">
+
+
 
 	<div class="image">
 		<img src="{imageUrl}" alt="{title}">
@@ -108,7 +132,7 @@
 
     <div class="text">
       <h1>{title}</h1>
-  		<p>{code}</p>
+  		<p>{description ? description : 'Description to go here...'}</p>
     </div>
 
   	<footer>
@@ -116,8 +140,9 @@
       <div class="actions">
         <Button
           type="button"
-          text="{isDiscountApplied ? 'Remove discount' : 'Apply discount'}"
-          on:click="{isDiscountApplied ? removeDiscount : applyDiscount}"
+          style="{isApplied ? '' : 'success'}"
+          text="{isApplied ? 'Remove' : 'Use this deal'}"
+          on:click="{toggleOffer}"
         />
       </div>
   	</footer>

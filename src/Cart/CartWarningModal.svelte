@@ -51,8 +51,7 @@
   position: fixed;
   top: 10vh;
   left: 10%;
-  width: 80%;
-  max-height: 80vh;
+  display: block; width: 80%; max-height: 80vh;
   background: white;
   border-radius: 5px;
   z-index: 100;
@@ -63,7 +62,7 @@
 
 @media (min-width: 768px) {
   .modal {
-    width: 30rem;
+    width: 60rem;
     left: calc(50% - 15rem);
   }
 }
@@ -75,23 +74,24 @@ section {
 
 .content {
   text-align: center;
-  width: 80%;
   margin: auto;
 }
 
-p {
-  font-size: 1rem; text-align: left;
-}
+  p {
+    padding-bottom: 1rem;
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
+  }
 
 
-  footer {  
-    max-width: 40rem;
+
+  footer {
     display: flex;
     margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
 </style>

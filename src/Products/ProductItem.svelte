@@ -42,24 +42,52 @@
 </script>
 
 <style>
+
+  /* BASIC CARD */
   article {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 5px;
     background: white;
-    margin: 0.5rem;
-    width: calc(33.3333% - 1rem);  
+    margin: 0 0.5rem  1rem;  
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  
+    justify-content: space-between; 
+    border: 3px solid white;
   }
+
+  @media (min-width: 768px) {
+    article {
+      width: calc(50% - 1rem);
+    } 
+
+  }
+
+  @media (min-width: 1024px) {
+    article {
+      width: calc(33.3333% - 1rem);
+    }
+  }
+
+
+
+
+  /* SELECTED ITEM */
+  article.incart {
+    box-shadow: 0 2px 8px rgba(255, 51, 102, 0.9);
+    border: 3px solid #f36;
+    background: #ddd;
+  }
+
+  article.incart img {
+    opacity: 0.75;
+  }
+
+
+
+
 
   article.large {
     width: calc(100% - 1rem);  
     flex-direction: row;
-  }
-
-  article.incart {
-    background: orange;
   }
 
   .content {
@@ -91,14 +119,16 @@
   }
 
   h1 {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
-    font-family: "Roboto Slab", sans-serif;
+    padding: 1rem 0 1rem;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em;
+    color: #000066; text-transform: uppercase;
   }
 
   p {
-    font-size: 1.25rem;
-    margin: 0 0 2rem;
+    padding-bottom: 1rem;
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
   }
 
   p.sale {
@@ -112,7 +142,7 @@
   }
 
   p.price {
-    font-size: 16px;
+    font-size: 16px; font-weight: 700; color: #f36;
   }
 
   p.memberprice {
@@ -133,17 +163,19 @@
 
   footer select {
     display: block;
-    height: 2.5rem; width: 100%;
+    height: 4rem; line-height: 4rem; width: 100%;
     padding: 0.5rem; margin-bottom: 1rem;
     font-size: 1.25rem;
 
-    border-radius: 5px;
+      font-family: "din-2014", sans-serif;
+      font-size: 1.6rem; text-transform: none;
   }
   footer .actions {    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0 -0.5rem;
   }
   article.large .content footer {
     max-width: 20rem;
@@ -179,7 +211,7 @@
           {/each}
         </select>
       {:else}
-        <p class="price">£{purchasables[0].price.toFixed(2)}</p>
+        <p class="price">{#if purchasables[0].price > 0}£{purchasables[0].price.toFixed(2)}{:else}FREE{/if}</p>
       {/if}
 
       <div class="actions">
@@ -206,7 +238,8 @@
         {:else}
           <Button
             type="button"
-            text="{isInCart ? 'Remove from cart' : 'Add to cart'}"
+            style="{isInCart ? '' : 'success'}"
+            text="{isInCart ? 'Remove' : 'Add to cart'}"
             on:click="{isInCart ? removeFromCart : addToCart}"
           />
         {/if}

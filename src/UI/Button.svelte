@@ -10,15 +10,20 @@
 <style>
   button,
 a {
+  margin: 0 0.5rem;
   font: inherit;
-  border: 1px solid #cf0056;
-  background: #cf0056;
-  padding: 0.5rem 1rem;
+  border: 1px solid #000066;
+  background: #000066;
+  padding: 1rem 1rem;
   color: white;
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
   cursor: pointer;
   text-decoration: none;
+  
+
+      font-family: "din-2014", sans-serif; font-weight: 700;
+      font-size: 1.6rem; line-height: 1.2em; text-transform: uppercase;
 }
 
 button:focus {
@@ -29,18 +34,18 @@ button:hover,
 button:active,
 a:hover,
 a:active {
-  background: #e40763;
-  border-color: #e40763;
-  box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
+  background: #000066;
 }
 
 button.disabled,
 button.disabled:hover,
 button.disabled:active {
-  background: #ccc;
-  border-color: #ccc;
-  color: #959595;
+  opacity: 0.1;
   box-shadow: none;
+}
+
+.close {
+  width: 10rem;
 }
 
 .success {
@@ -55,8 +60,9 @@ button.disabled:active {
 }
 
 .outline {
-  background: transparent;
-  color: #cf0056;
+  background: #fc0;
+  border-color: #fc0;
+  color: #fff;
   box-shadow: none;
 }
 
@@ -89,5 +95,5 @@ button.disabled:active {
 {#if type === 'link'}
   <a href="{href}" class="{style}">{text}</a>
 {:else}
-  <button type="{type}" class="{style} {disabled ? 'disabled' : ''}"  on:click>{text}</button>
+  <button type="{type}" class="{style} {disabled ? 'disabled' : ''} {text == 'Close' ? 'close' : ''}"  on:click>{text}</button>
 {/if}

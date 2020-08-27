@@ -17,31 +17,49 @@
   
 <style>
     ul {
-      display: flex;
-      flex-wrap: wrap;
       padding-left: 0;
       margin-bottom: 0;
       list-style: none;
-      border-bottom: 1px solid #dee2e6;
     }
+
+      @media (min-width: 768px) {
+        ul {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #f36;
+        } 
+
+      }
+
+      @media (max-width: 767px) {
+        li {
+          width: 100%;
+          border-bottom: 1px solid #fff;
+        } 
+
+      }
   
     span {
-      border: 1px solid transparent;
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
+      border: 2px solid #000066; border-bottom: none;
       display: block;
-      padding: 0.5rem 1rem;
+      padding: 1rem 2rem;
       cursor: pointer;
+
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.8rem; line-height: 1.2em; text-transform: uppercase;
+
+      background: #000066; color: #fff;
     }
   
     span:hover {
-      border-color: #e9ecef #e9ecef #dee2e6;
+      background-color: #f36;
+      border-color: #f36;
     }
   
     li.active > span {
-      color: #495057;
-      background-color: #fff;
-      border-color: #dee2e6 #dee2e6 #fff;
+      color: #fff;
+      background-color: #f36;
+      border-color: #f36;
     }
   </style>
   

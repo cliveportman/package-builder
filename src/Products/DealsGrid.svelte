@@ -8,7 +8,7 @@
 
 <style>
 	section {
-	  padding: 0.5rem;
+	  margin: 2rem -0.5rem 0;
 	}
 
 	@media (min-width: 768px) {
@@ -26,9 +26,9 @@
 		<DealItem
 			id="{deal.id}"
 			title="{deal.title}"
+			description="{deal.description}"
 			imageUrl="{deal.imageUrl}"
-			code="{deal.code}"
-  			isDiscountApplied="{deal.isDiscountApplied}"
+  			isApplied="{deal.isApplied}"
 		/>
 	{/each}
 </section>

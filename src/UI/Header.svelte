@@ -5,23 +5,31 @@
 <style>
 
 	header {
-		width: 100%; height: 4rem;
-
+		width: 100%;
+		padding: 2rem;
 		display: flex; justify-content: center; align-items: center;
-
-		background: #cf0056;
-		box-shadow: 0 2px 6px rgba(0,0,0, 0.26);
 	}
 
 	h1 {
-		margin: 0;
-		
-		color: #fff;
-		font-family: 'Roboto Slab', serif;
+	    margin-bottom: 0;
+	    font-family: "din-2014", sans-serif;
+	    font-weight: 400;
+	    font-size: 2.8rem;
+	    line-height: 1.2em;
+	    text-transform: uppercase;
+	    letter-spacing: 0.2em;
+	    text-align: center;
+	    color: #000;
+	}
+
+	@media (min-width: 768px) {
+		h1 {
+			font-size: 5.5rem;
+		}
 	}
 
 </style>
 
 <header>
-	<h1>Membership Builder</h1>
+	<h1>Build your package</h1>
 </header>

@@ -1,28 +1,97 @@
 <script>
 
-	import { cartItems, cartService, totalPrice, requiredItemsToWarnAbout } from './cart-store.js';
+	import { cartOffer, cartItems, cartService, cartTotals, requiredItemsToWarnAbout } from './cart-store.js';
 
 	import CartItem from './CartItem.svelte';
 	import CartWarningModal from './CartWarningModal.svelte';
-  	import Button from "../UI/Button.svelte";
+  import Button from "../UI/Button.svelte";
 
 	function emptyCart() {
 		cartService.emptyCart();
 	}
 
-  	let warningModalItems = false;
+  let warningModalItems = false;
 	const unsubscribe = requiredItemsToWarnAbout.subscribe(items => {
 		warningModalItems = items;
 	});
 
+  let loading = false
+  let baseUrl = "https://www.britbound.com/"
 
+  function processCart() {
 
+    if ($cartItems) {
+      loading = true
+      processCartItems()
+    }
+
+  }
+
+  function processCartItems() {
+
+    const purchasableIdsArray = []
+    $cartItems.forEach(item => {
+      purchasableIdsArray.push(item.purchasable.id)
+    });
+    const purchasableIdsString = purchasableIdsArray.toString()
+
+    const addUrl = baseUrl + 'pb/cart/add/' + purchasableIdsString
+    let data = "";
+    let ajax = new XMLHttpRequest();
+
+    ajax.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status ==200){
+        var response = JSON.parse(this.responseText);
+        console.log(response);
+        if (response.success) {
+        	processDiscount()
+        } else {
+            loading = false
+            window.location = baseUrl + 'cart'
+
+        }
+      }
+            
+    }      
+    ajax.open('POST', addUrl, true);
+    ajax.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
+    ajax.send(data);     
+
+  }
+
+  function processDiscount() {
+    if ($cartOffer) {
+      const discountUrl = baseUrl + 'pb/cart/discount/' + $cartOffer.code
+      let data = "";
+      let ajax = new XMLHttpRequest();
+
+      ajax.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            var response = JSON.parse(this.responseText);
+        console.log(response);
+          if (response.success) {
+            loading = false
+            window.location = baseUrl + 'cart'
+          }
+        }
+      }      
+      ajax.open('POST', discountUrl, true);
+      ajax.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
+      ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
+      ajax.send(data);
+    } else {
+      loading = false
+      window.location = baseUrl + 'cart'
+    }
+
+  }
 
 </script>
 
 <style>
 	.cart {
-		position:fixed; width: 20rem; height: 100vh;
+		position:fixed; width: 30rem; height: 100vh; margin-left: 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -32,7 +101,6 @@
 	}
 
 	footer h1 {
-		text-align: right;
 	}
 
 		footer .actions {
@@ -44,6 +112,44 @@
 	span {
 		margin: 0;
 	}
+
+
+
+
+
+  h1 {
+    padding: 0; margin-bottom: 2rem; margin-top: 2rem;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: right;
+    color: #000066; text-transform: uppercase;
+  }
+  h2 {
+    padding: 0; margin-top: 1rem;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 1.6rem; line-height: 1.2em; text-align: right;
+    color: #000066; text-transform: uppercase;
+  }
+
+  h1 span, h2 span {
+  	color: #f36; font-weight: 700;
+  }
+
+  h3 {
+    padding: 0;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 1.6rem; line-height: 1.2em;
+    color: #000066; text-transform: none;
+  }
+
+  p {
+    padding-top: 0.5rem; margin-bottom: 0;
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000066;
+  }
+
+  p.price {
+    font-size: 16px; font-weight: 700; color: #f36;
+  }
 
 </style>
 
@@ -65,16 +171,24 @@
 	</div>
 
 	<footer>
-	    <h1>Total: £{$totalPrice}</h1>
+	    <h2>Package price: <span>£{$cartTotals.subtotal.toFixed(2)}</span></h2>
+		{#if $cartOffer}
+							
+				<h2>Package deal: {$cartOffer.title}<br><span>£{$cartTotals.adjustment.toFixed(2)}</span></h2>
+			
+		{/if}
+	    <h1>Total: <span>£{($cartTotals.subtotal + $cartTotals.adjustment).toFixed(2)}</span></h1>
 		<div class="actions">
 		    <Button
 		      type="button"
+		      style="outline"
 		      text="Empty cart"
 		      on:click="{emptyCart}"
 		    />
 		    <Button
 		      type="button"
-		      text="Checkout"
+		      text="Cart"
+		      on:click="{processCart}"
 		    />
 		</div>
 	</footer>

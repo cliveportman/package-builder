@@ -28,13 +28,6 @@
   // Used to pass the close button call to parents
   const dispatch = createEventDispatcher();
 
-  // Used the purchasable select field
-  let selectedPurchasable;
-
-  function addToCart() {
-    cartService.addItem({ product: { id: productToShow.id, title: productToShow.title }, purchasable: selectedPurchasable });
-  }
-
   function removeFromCart() {
     cartService.removeItem(productToShow.id);
   }
@@ -44,11 +37,22 @@
     console.log(index);
   }
 
-  export let disabled = true;  
+  export let disabled = true; 
 
-  productToShow.purchasables.forEach((purchasable) => {
-    if (!purchasable.disabled) { disabled = false; }
-  });
+
+
+  // Products with a single variant need the selectedPurchasable to be populated.
+  let selectedPurchasable = null;
+  if (productToShow.purchasables.length === 1) {
+    selectedPurchasable = productToShow.purchasables[0];
+  }
+
+  function addToCart() {
+    // For multi-variant products, we disable the Add To Cart button until a purchasable has been selected.
+    if (selectedPurchasable) {
+      cartService.addItem({ product: { id: productToShow.id, title: productToShow.title }, purchasable: selectedPurchasable });
+    }
+  }
 
 </script>
 
@@ -66,13 +70,11 @@
 }
 
 .modal {
-  position: fixed;
-  top: 10vh;
-  left: 10%;
-  width: 80%;
+  position: fixed; top: 10vh; left: 10%;
+  width: 80%; display: block;
+  margin: 0; padding: 3px;
   max-height: 80vh;
   background: white;
-  border-radius: 5px;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   overflow: auto;
@@ -81,8 +83,8 @@
 
 @media (min-width: 768px) {
   .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
+    width: 80rem;
+    left: calc(50% - 40rem);
   }
 }
 
@@ -93,6 +95,7 @@ section {
 .image {
   width: 100%;
   height: 25rem;
+  margin-bottom: 2rem;
 }
 
 img {
@@ -106,20 +109,28 @@ img {
 }
 
 .content {
-  text-align: center;
-  width: 80%;
+  text-align: left;
+  padding: 0 2rem;
   margin: auto;
 }
 
-h1 {
-  font-size: 2rem;
-  font-family: 'Roboto Slab', sans-serif;
-  margin: 0.5rem 0;
-}
+  h1 {
+    padding: 1rem 0 1rem;
+    font-family: "fatfrank", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em;
+    color: #000066; text-transform: uppercase;
+  }
+
+  p {
+    padding-bottom: 1rem;
+      font-family: "din-2014", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
+  }
 
 h2 {
-  font-size: 1rem; text-align: left;
-  margin: 0; padding: 0.75rem 0 0.75rem;
+      font-family: "din-2014", sans-serif; font-weight: 700;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
+  margin: 0; padding: 1rem 0 1rem;
 }
 
 h2:before {
@@ -162,12 +173,6 @@ h2:before {
   display: none;
 }
 
-p {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-}
-
-
   footer p {
     display: block;
     height: 2.5rem; width: 100%;
@@ -177,7 +182,6 @@ p {
     border-radius: 5px;
   }
   footer {  
-    max-width: 40rem;
     display: flex;
     margin: 0 auto;
     flex-direction: row;
@@ -187,14 +191,13 @@ p {
   }
 
   footer select {
-    display: block;
-    flex: 1;
-    margin: 0 1rem;
-    height: 2.5rem;
-    padding: 0.5rem; 
+    display: block; min-width: 30rem;
+    height: 4rem; line-height: 4rem; width: 100%;
+    padding: 0.5rem;
     font-size: 1.25rem;
 
-    border-radius: 5px;
+      font-family: "din-2014", sans-serif;
+      font-size: 1.6rem; text-transform: none;
   }
 
 </style>
@@ -237,7 +240,7 @@ p {
       style="outline"
       on:click="{ () => dispatch('close') }"
     />
-
+<!--
       {#if productToShow.purchasables.length > 1}
         <select disabled="{disabled}" bind:value="{selectedPurchasable}">
           <option>Select...</option>
@@ -249,12 +252,30 @@ p {
         <p class="price">£{productToShow.purchasables[0].price.toFixed(2)}</p>
       {/if}
 
-    <Button
-      type="button"
-      text="{productToShow.isInCart ? 'Remove from cart' : 'Add to cart'}"
-      disabled="{disabled}"
-      on:click="{productToShow.isInCart ? removeFromCart : addToCart}"
-    />
+
+    {#if productToShow.wholeProductDisabled}
+      <Button
+        type="button"
+        text="Unavailable"
+        disabled=true
+        on:click="{ () => dispatch('showRequiredProducts', id) }"
+      />
+    {:else if !selectedPurchasable}
+      <Button
+        type="button"
+        text="Add to cart"
+        disabled=true
+        on:click="{addToCart}"
+      />
+    {:else}
+      <Button
+        type="button"
+        style="{productToShow.isInCart ? '' : 'success'}"
+        text="{productToShow.isInCart ? 'Remove' : 'Add to cart'}"
+        on:click="{productToShow.isInCart ? removeFromCart : addToCart}"
+      />
+    {/if}
+-->
 
   </footer>
 </section>

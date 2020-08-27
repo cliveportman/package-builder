@@ -8,7 +8,7 @@
 
 <style>
 	section {
-	  padding: 0.5rem;
+	  margin: 2rem -0.5rem 0;
 	}
 
 	@media (min-width: 768px) {

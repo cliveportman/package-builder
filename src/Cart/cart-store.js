@@ -4,11 +4,14 @@ import { deals, products, productsService } from '../Products/products-store.js'
 
 export const cartItems = writable([]);
 
+export let cartOffer = writable();
+
 export const requiredItemsToWarnAbout = writable([]);
 
 export const cartService = {
 
   subscribe: cartItems.subscribe,
+  subscribe: cartOffer.subscribe,
   subscribe: requiredItemsToWarnAbout,
 
   subscribe: deals.subscribe,
@@ -116,27 +119,49 @@ export const cartService = {
     });
   },
 
-  toggleIsDiscountApplied: (id) => {
+  toggleOfferApplied: (id) => {
+
+    let selectedDeal;
 
     deals.update(dealsList => {
 
-      const itemToToggle = dealsList.find(deal => deal.id === id);
-      itemToToggle.isApplied = !itemToToggle.isApplied;
-      const itemIndex = dealsList.findIndex(deal=> deal.id === id);
-      items[itemIndex] = itemToToggle;
-      return productsList;
+      // Loop through the deals list.
+      for (var key in dealsList) {
+
+        // If the deal id matches the id we're concerned with, make that deal the selectedDeal.
+        if (dealsList[key].id === id) {
+          // Toggle the `isApplied` attribute.
+          dealsList[key].isApplied = !dealsList[key].isApplied;
+          selectedDeal = dealsList[key];
+        } else {
+          // If it's not the concerned deal, toggle the isApplied attribute to false.
+          dealsList[key].isApplied = false;
+        }
+
+      }
+
+      return dealsList;
+
+    });
+
+    cartOffer.update(currentOffer => {
+
+      if (selectedDeal.isApplied) {
+        console.log('We add it to the cart');
+        return selectedDeal;
+      } else {
+        console.log('We do not');
+        return null;
+      }
+
 
     });
 
   },
 
-  applyDiscount: id => {
-
-  }
-
 }; 
 
-export const totalPrice = derived(
+export const itemsSubtotal = derived(
   cartItems,
   ($cartItems) => {
     let price = 0;
@@ -145,4 +170,59 @@ export const totalPrice = derived(
     });
     return price.toFixed(2);
   }
+);
+
+export const cartTotals = derived(
+
+  [cartOffer, cartItems],
+  ([$cartOffer, $cartItems]) => {
+
+    let itemsPriceTotal = 0;
+    $cartItems.forEach(i => {
+      itemsPriceTotal = itemsPriceTotal + i.purchasable.price;
+    });
+
+    let dealsAdjustment = 0;
+
+    // Identify the products the deal applies to.
+
+    /* Identify the type of deal:
+      `baseDiscount` = whole order discount, flat figure
+      `itemDiscountFlat` = per matching item discount, flat figure
+      `itemDiscountPercent` = per matching item discount, percentage
+    */
+
+    if ($cartOffer && $cartOffer.baseDiscount) {
+      // Whole order discount
+      dealsAdjustment = $cartOffer.baseDiscount
+
+    } else if ($cartOffer && $cartOffer.itemDiscountFlat) {
+      // Per matching item discount (flat)
+      $cartItems.forEach(item => {
+        if ($cartOffer.products.includes(item.product.id)) {
+          dealsAdjustment = dealsAdjustment + $cartOffer.itemDiscountFlat
+        }
+      });
+
+
+    } else if ($cartOffer && $cartOffer.itemDiscountPercent) {
+      // Per matching item discount (percent)
+      $cartItems.forEach(item => {
+        if ($cartOffer.products.includes(item.product.id)) {
+          const discount = item.purchasable.price * $cartOffer.itemDiscountPercent
+          dealsAdjustment = dealsAdjustment + discount
+        }
+      });
+
+    }
+
+    const returnObject = {
+      subtotal: itemsPriceTotal,
+      adjustment: dealsAdjustment
+    }
+
+    return returnObject;
+
+  }
+
 );
