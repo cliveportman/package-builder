@@ -89,9 +89,9 @@ import Tabs from './UI/Tabs.svelte';
 let tabItems = [
   { label: "Current deals", value: 'deals' },
   { label: "Visa", value: 'visa' },
-  { label: "Work", value: 'work' },
-  { label: "Social", value: 'social' },
   { label: "Relocation", value: 'relocation' },
+  //{ label: "Work", value: 'work' },
+  { label: "Social", value: 'social' },
   { label: "Tours", value: 'tours' }
 ];
 let currentTab;
@@ -110,7 +110,7 @@ let currentTab;
 	  	grid-template-columns: 1fr;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 1024px) {
 	  	.page {
 	    	grid-template-columns: auto 30rem;
 	  	}
@@ -150,18 +150,19 @@ let currentTab;
 
       {#if currentTab === 'visa'}
         <ProductsGrid products="{$products.visas}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
-      {/if}
-
-      {#if currentTab === 'work'}
-        <ProductsGrid products="{$products.works}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
-      {/if}
-
-      {#if currentTab === 'social'}
-        <ProductsGrid products="{$products.socials}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
       {/if} 
 
       {#if currentTab === 'relocation'}
         <ProductsGrid products="{$products.relocations}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
+      {/if}
+      <!--
+      {#if currentTab === 'work'}
+        <ProductsGrid products="{$products.works}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
+      {/if}
+    -->
+
+      {#if currentTab === 'social'}
+        <ProductsGrid products="{$products.socials}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
       {/if} 
 
       {#if currentTab === 'tours'}

@@ -147,10 +147,8 @@ export const cartService = {
     cartOffer.update(currentOffer => {
 
       if (selectedDeal.isApplied) {
-        console.log('We add it to the cart');
         return selectedDeal;
       } else {
-        console.log('We do not');
         return null;
       }
 
@@ -192,27 +190,31 @@ export const cartTotals = derived(
       `itemDiscountPercent` = per matching item discount, percentage
     */
 
-    if ($cartOffer && $cartOffer.baseDiscount) {
-      // Whole order discount
-      dealsAdjustment = $cartOffer.baseDiscount
+    if ($cartOffer && $cartOffer.purchaseTotal <= itemsPriceTotal) {
 
-    } else if ($cartOffer && $cartOffer.itemDiscountFlat) {
-      // Per matching item discount (flat)
-      $cartItems.forEach(item => {
-        if ($cartOffer.products.includes(item.product.id)) {
-          dealsAdjustment = dealsAdjustment + $cartOffer.itemDiscountFlat
-        }
-      });
+      if ($cartOffer && $cartOffer.baseDiscount) {
+        // Whole order discount
+        dealsAdjustment = $cartOffer.baseDiscount
+
+      } else if ($cartOffer && $cartOffer.itemDiscountFlat) {
+        // Per matching item discount (flat)
+        $cartItems.forEach(item => {
+          if ($cartOffer.products.includes(item.product.id)) {
+            dealsAdjustment = dealsAdjustment + $cartOffer.itemDiscountFlat
+          }
+        });
 
 
-    } else if ($cartOffer && $cartOffer.itemDiscountPercent) {
-      // Per matching item discount (percent)
-      $cartItems.forEach(item => {
-        if ($cartOffer.products.includes(item.product.id)) {
-          const discount = item.purchasable.price * $cartOffer.itemDiscountPercent
-          dealsAdjustment = dealsAdjustment + discount
-        }
-      });
+      } else if ($cartOffer && $cartOffer.itemDiscountPercent) {
+        // Per matching item discount (percent)
+        $cartItems.forEach(item => {
+          if ($cartOffer.products.includes(item.product.id)) {
+            const discount = item.purchasable.price * $cartOffer.itemDiscountPercent
+            dealsAdjustment = dealsAdjustment + discount
+          }
+        });
+
+      }
 
     }
 

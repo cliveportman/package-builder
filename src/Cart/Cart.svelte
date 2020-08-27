@@ -96,7 +96,7 @@
 		overflow-y: auto;
 	}
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .cart {
     position:fixed; width: 30rem; height: 100vh; margin-left: 20px;
     display: flex;

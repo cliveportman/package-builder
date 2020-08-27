@@ -56,7 +56,7 @@
 
   @media (min-width: 768px) {
     article {
-      width: calc(50% - 1rem);
+      width: calc(33.3333% - 1rem);
     } 
 
   }
@@ -84,11 +84,12 @@
 
 
 
-
+@media (min-width: 1024px) {
   article.large {
     width: calc(100% - 1rem);  
     flex-direction: row;
   }
+}
 
   .content {
     display: flex;
@@ -101,15 +102,16 @@
   .image {
     width: 100%;
   }
-
+@media (min-width: 1024px) {
   article.large .image {
-    width: 37.5%;
+    width: calc(25% - 1rem);
     height: auto;
   }
 
   article.large .content {
     width: 62.5%;
   }
+}
 
   .image img {
     width: 100%;
@@ -175,9 +177,12 @@
     align-items: center;
     margin: 0 -0.5rem;
   }
+@media (min-width: 1024px) {
   article.large .content footer {
-    max-width: 20rem;
+    width: 50%;
+    max-width: 40rem;
   }
+}
 
 </style>
 
