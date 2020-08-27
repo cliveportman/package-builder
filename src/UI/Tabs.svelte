@@ -20,7 +20,6 @@
     let displayCovidUpdate = false;
 
     function toggleCovidUpdate(){
-      console.log('hi');
       displayCovidUpdate = !displayCovidUpdate
     }
 
@@ -80,6 +79,10 @@
     }
 
 a.covid19 {
+  display: none;
+}
+@media (min-width: 768px) { 
+a.covid19 {
   display: block;
   position: absolute; top: 0; right: 0;
   padding: 1rem 0;
@@ -88,6 +91,7 @@ a.covid19 {
   font-family: "Lato", sans-serif; font-weight: 400;
   font-size: 1.6rem; line-height: 1.2em; text-transform: uppercase;
   color: #000066;
+}
 }
 
 
