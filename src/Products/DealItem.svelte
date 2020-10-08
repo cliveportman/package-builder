@@ -38,7 +38,7 @@
 
   @media (min-width: 1024px) {
     article {
-      width: calc(33.3333% - 1rem);
+      width: calc(50% - 1rem);
     }
   }
 
@@ -66,7 +66,7 @@
 
   .image {
     width: 100%;
-    height: 14rem;
+    height: 30rem;
   }
 
   .image img {
@@ -79,7 +79,7 @@
     padding: 1rem 0 1rem;
     font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em;
-    color: #000066; text-transform: uppercase;
+    color: #000066; text-transform: uppercase; text-align: left; letter-spacing: 0;
   }
 
   p {

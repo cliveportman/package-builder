@@ -26,7 +26,7 @@
     padding: 0;
     font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 1.6rem; line-height: 1.2em;
-    color: #000066; text-transform: uppercase;
+    color: #000066; text-transform: uppercase; letter-spacing: 0;
   }
 
   h3 {

@@ -122,7 +122,7 @@
     padding: 1rem 0 1rem;
     font-family: "Roboto Slab", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em;
-    color: #000066; text-transform: uppercase;
+    color: #000066; text-transform: uppercase; text-align: left; letter-spacing: 0;
   }
 
   p {

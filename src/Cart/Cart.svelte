@@ -98,7 +98,7 @@
 
   @media (min-width: 1024px) {
     .cart {
-    position:fixed; width: 30rem; height: 100vh; margin-left: 20px;
+    position:relative; width: 30rem; height: 100vh; margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -130,7 +130,7 @@
     padding: 0; margin-bottom: 2rem;
     font-family: "Lato", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: center;
-    color: #000066; text-transform: uppercase;
+    color: #000066; text-transform: uppercase; letter-spacing: 0;
     border-bottom: 1px solid #ccc;
     padding-bottom: 1rem;
   }
@@ -140,7 +140,7 @@
     padding: 0; margin-bottom: 2rem; margin-top: 2rem;
     font-family: "Lato", sans-serif;
     font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: right;
-    color: #000066; text-transform: uppercase;
+    color: #000066; text-transform: uppercase; letter-spacing: 0;
   }
   h3 {
     padding: 0; margin-top: 1rem;

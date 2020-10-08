@@ -49,11 +49,18 @@ section {
   margin: auto;
 }
 
-p {
-  padding-bottom: 1rem;
-    font-family: "Lato", sans-serif; font-weight: 400;
-    font-size: 1.6rem; line-height: 1.2em; color: #000;
-}
+  h1 {
+    padding: 1rem 0 1rem;
+    font-family: "Roboto Slab", sans-serif;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em;
+    color: #000066; text-transform: uppercase; letter-spacing: 0;text-align: left;
+  }
+
+  p {
+    padding-bottom: 1rem;
+      font-family: "Lato", sans-serif; font-weight: 400;
+      font-size: 1.6rem; line-height: 1.2em; color: #000;
+  }
 
 
 footer {  
@@ -69,7 +76,7 @@ footer {
 <section>
 
   <div class="content">
-    <h2>COVID-19 UPDATE</h2>
+    <h1>COVID-19 UPDATE</h1>
     <p>Text...</p>
   </div>
 

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"text-",
+				"text-align\tproperty"
+			],
+			[
 				"bor",
 				"border-top\tproperty"
 			],
@@ -252,10 +256,6 @@
 				"carttotal"
 			],
 			[
-				"text-",
-				"text-decoration"
-			],
-			[
 				"bord",
 				"borderColor"
 			],
@@ -291,6 +291,31 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/Products/DealItem.svelte",
+			"settings":
+			{
+				"buffer_size": 2716,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Cart/cart-store.js",
+			"settings":
+			{
+				"buffer_size": 6273,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Products/products-store.js",
+			"settings":
+			{
+				"buffer_size": 2311,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -338,23 +363,23 @@
 	],
 	"file_history":
 	[
-		"/C/dev/repos/svelte/package-builder/src/Cart/CartWarningModal.svelte",
+		"/C/dev/repos/svelte/package-builder/public/index.html",
+		"/C/dev/repos/svelte/package-builder/public/global.css",
 		"/C/dev/repos/svelte/package-builder/src/Cart/Cart.svelte",
-		"/C/dev/repos/svelte/package-builder/src/UI/Modal.svelte",
-		"/C/dev/repos/svelte/package-builder/src/UI/Tabs.svelte",
-		"/C/dev/repos/svelte/package-builder/src/App.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Cart/CartItem.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/DealItem.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Products/ProductItem.svelte",
+		"/C/dev/repos/svelte/package-builder/src/UI/Modal.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Products/ProductInfo.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Cart/cart-store.js",
+		"/C/dev/repos/svelte/package-builder/src/UI/Tabs.svelte",
+		"/C/dev/repos/svelte/package-builder/src/Cart/CartWarningModal.svelte",
+		"/C/dev/repos/svelte/package-builder/src/App.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Products/ProductsGrid.svelte",
 		"/C/dev/repos/svelte/package-builder/src/UI/Button.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Products/DealItem.svelte",
-		"/C/dev/repos/svelte/package-builder/public/index.html",
-		"/C/dev/repos/svelte/package-builder/src/Cart/CartItem.svelte",
 		"/C/dev/repos/svelte/package-builder/src/UI/Header.svelte",
 		"/C/dev/repos/svelte/package-builder/src/Products/ProductRequirements.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Products/ProductInfo.svelte",
-		"/C/dev/repos/svelte/package-builder/public/global.css",
 		"/C/dev/repos/svelte/package-builder/src/Products/DealsGrid.svelte",
-		"/C/dev/repos/svelte/package-builder/src/Cart/cart-store.js",
 		"/C/dev/repos/svelte/package-builder/src/main.js",
 		"/C/dev/repos/svelte/package-builder/src/Products/products-store.js",
 		"/C/dev/repos/svelte/package-builder/src/UI/LoadingSpinner.svelte",
@@ -469,7 +494,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -723,14 +748,113 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/Products/DealItem.svelte",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1122,
+								1122
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Svelte/Svelte.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 871.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Cart/cart-store.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/Products/products-store.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1178,
+								1145
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 969.333333333,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 41.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -771,7 +895,7 @@
 	"project": "package-builder.sublime-project",
 	"replace":
 	{
-		"height": 78.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -786,9 +910,13 @@
 	"select_project":
 	{
 		"height": 1061.33333333,
-		"last_filter": "",
+		"last_filter": "lei",
 		"selected_items":
 		[
+			[
+				"lei",
+				"C:\\dev\\repos\\web\\leiths\\leiths.sublime-project"
+			],
 			[
 				"",
 				"C:\\dev\\repos\\web\\britbound\\britbound.sublime-project"
@@ -864,10 +992,6 @@
 			[
 				"eaa",
 				"C:\\Users\\clive\\Desktop\\repos\\eaaf\\eaaf.sublime-project"
-			],
-			[
-				"lei",
-				"C:\\Users\\clive\\Desktop\\repos\\leiths\\leiths.sublime-project"
 			],
 			[
 				"st",

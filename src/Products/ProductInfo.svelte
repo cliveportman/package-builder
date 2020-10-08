@@ -117,8 +117,8 @@ img {
   h1 {
     padding: 1rem 0 1rem;
     font-family: "Roboto Slab", sans-serif;
-    font-weight: 700; font-size: 2rem; line-height: 1.2em;
-    color: #000066; text-transform: uppercase;
+    font-weight: 700; font-size: 2rem; line-height: 1.2em; text-align: left;
+    color: #000066; text-transform: uppercase; letter-spacing: 0;
   }
 
   p {
@@ -130,7 +130,7 @@ img {
 h2 {
       font-family: "Lato", sans-serif; font-weight: 700;
       font-size: 1.6rem; line-height: 1.2em; color: #000;
-  margin: 0; padding: 1rem 0 1rem;
+  margin: 0; padding: 1rem 0 1rem; text-transform: none;
 }
 
 h2:before {
