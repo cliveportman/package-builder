@@ -90,7 +90,8 @@ let tabItems = [
   { label: "Current deals", value: 'deals' },
   { label: "Visa", value: 'visa' },
   { label: "Relocation", value: 'relocation' },
-  //{ label: "Work", value: 'work' },
+  { label: "Work", value: 'work' },
+  { label: "UK Address", value: 'ukAddress' },
   { label: "Social", value: 'social' },
   { label: "Tours", value: 'tours' }
 ];
@@ -155,11 +156,15 @@ let currentTab;
       {#if currentTab === 'relocation'}
         <ProductsGrid products="{$products.relocations}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
       {/if}
-      <!--
+      
       {#if currentTab === 'work'}
         <ProductsGrid products="{$products.works}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
       {/if}
-    -->
+      
+      {#if currentTab === 'ukAddress'}
+        <ProductsGrid products="{$products.ukAddress}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
+      {/if}
+    
 
       {#if currentTab === 'social'}
         <ProductsGrid products="{$products.socials}" on:showProductInfo="{showProductInfo}" on:showRequiredProducts="{showRequiredProducts}" />
